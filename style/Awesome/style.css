@@ -71,7 +71,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Header */
 #header {
-	background: #74bb01;
+	background: #689e0d;
+	background: linear-gradient(to right, #689e0d, #a3d928);
 	color: #fff;
 }
 
@@ -94,11 +95,11 @@ h1, h2, h3, h4, h5, h6 {
 	}
 
 	#header .dropdown-menu > li > a:hover, #header .dropdown-menu > li > a:focus {
-		background: #74bb01;
+		background: #47a9f5;
 	}
 
 	.dropdown-menu .divider {
-		background-color: #4c7c00;
+		background-color: #0068b0;
 	}
 
 	.navbar-default .navbar-collapse, .navbar-default .navbar-form {
@@ -109,6 +110,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .announcement a {
 	text-decoration: underline;
+}
+
+@media screen and (min-width: 768px) {
+	.navbar-default .navbar-brand, .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+		background: #5b8d09;
+	}
 }
 
 .avatar-item .avatar {
@@ -162,7 +169,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .first-run-profile {
-	background: #74bb01;
+	background: #689e0d;
+	background: linear-gradient(to bottom left, #689e0d, #a3d928);
 	border-bottom-left-radius: 3px;
 	border-top-left-radius: 3px;
 	padding-bottom: 16px;
@@ -180,6 +188,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .first-run-avatar img {
 	border-radius: 3px;
+	box-shadow: 0px 0px 13px rgba(0, 0, 0, .5);
 }
 
 .first-run-list {
@@ -279,7 +288,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .panel-default .panel-heading {
 	border: none;
-	background: #74bb01;
+	background: #689e0d;
+	background: linear-gradient(to right, #689e0d, #a3d928);
 	color: #fff;
 	height: 37px;
 }
@@ -304,12 +314,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar {
-	background: #74bb01;
-	border-bottom-color: rgba(255,255,255,.3);
+	border: none;
+	background: #689e0d;
+}
+  
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+	background-color: #5b8d09;
 }
 
-.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-	background-color: transparent;
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+	background-color: #5b8d09;
 	color: #fff;
 }
 
@@ -334,15 +348,15 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Toggle */
 .navbar-default .navbar-toggle {
-	border-color: #fff;
+	border-color: #689e0d;
 }
 
 .navbar-default .navbar-toggle, .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-	background-color: #fff;
+	background-color: #689e0d;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
-	background-color: #74bb01;
+	background-color: #fff;
 }
 
 /* Pagination */
@@ -357,8 +371,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
-	border: 1px solid #74bb01;
-	background-color: #74bb01;
+	border: 1px solid #5b8d09;
+	background-color: #5b8d09;
 }
 
 /* Profile */
@@ -368,8 +382,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a.active.list-group-item, a.active.list-group-item:hover, a.active.list-group-item:focus {
-	background-color: #74bb01;
-	border-color: #74bb01;
+	background-color: #5b8d09;
+	border-color: #5b8d09;
 }
 
 .profile-h2 {
@@ -517,12 +531,14 @@ a.active.list-group-item, a.active.list-group-item:hover, a.active.list-group-it
 
 .table > thead > tr.active {
 	color: #fff;
-	background: #74bb01;
+	background: #689e0d;
+	background: linear-gradient(to right, #689e0d, #a3d928);
 }
 
 .category-header, .forum-header {
 	color: #fff;
-	background: #74bb01;
+	background: #689e0d;
+	background: linear-gradient(to right, #689e0d, #a3d928);
 	padding: 8px 0;
 	border-top-left-radius: 3px;
 	border-top-right-radius: 3px;
@@ -574,18 +590,18 @@ a.active.list-group-item, a.active.list-group-item:hover, a.active.list-group-it
 
 .btn-primary {
 	color: #fff;
-	background: #74bb01;
-	border-color: #68a700;
+	background-color: #689e0d;
+	border-color: #5b8d09;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] {
-	background: #68a700;
-	border-color: #5a9100;
 	color: #fff;
+	background-color: #76b40d;
+	border-color: #5b8d09;
 }
 
 .btn-primary:active, .btn-primary.active {
-	background-color: #408140 9;
+	background-color: #76b40d;
 }
 
 .btn-post {
@@ -645,7 +661,7 @@ a.active.list-group-item, a.active.list-group-item:hover, a.active.list-group-it
 }
 
 .alert-info, #redirect {
-	border-left: #93c920 5px solid;
+	border-left: #2ca0e9 5px solid;
 }
 
 .alert-danger {
@@ -654,7 +670,7 @@ a.active.list-group-item, a.active.list-group-item:hover, a.active.list-group-it
 }
 
 .alert-success {
-	border-left: #523f6d 5px solid;
+	border-left: #41d300 5px solid;
 	color: #4e9e00;
 }
 
@@ -736,7 +752,7 @@ textarea {
 }
 
 .inew .icon {
-	border-color: #81c400;
+	border-color: #2ca0e9;
 }
 
 /* Search */
@@ -919,7 +935,7 @@ textarea {
 
 .profile-card-head {
 	height: 59px;
-	background-color: #74bb01;
+	background-color: #689e0d;
 	color: #fff;
 	border-top-left-radius: 3px;
 	border-top-right-radius: 3px;
@@ -987,11 +1003,12 @@ textarea {
 	left: 4px;
 	margin-top: -2px;
 	border-left-width: 0px;
-	border-right-color: #74bb01;;
+	border-right-color: #689e0d;
 }
 
 .topic .panel-heading {
-	background: #74bb01;
+	background: #689e0d;
+	background: linear-gradient(to right, #689e0d, #a3d928);
 }
 
 .post-actions {
@@ -1009,7 +1026,8 @@ textarea {
 	}
 
 	.profile-card-head {
-		background: #74bb01;
+		background: #689e0d;
+		background: linear-gradient(to right, #689e0d, #a3d928);
 	}
 
 	.topic .panel-heading  {
@@ -1042,11 +1060,11 @@ textarea {
 
 /* Links */
 a {
-	color: #60920e;
+	color: #428bca;
 }
 
 a:hover, a:active {
-	color: #523f6d;
+	color: #2a6496;
 }
 
 a.list-group-item:hover, a.list-group-item:active {
@@ -1093,7 +1111,8 @@ blockquote footer {
 .form-heading {
 	margin-bottom: 0px;
 	font-weight: 100;
-	background: #74bb01;
+	background: #689e0d;
+	background: linear-gradient(to right, #689e0d, #a3d928);
 	color: #fff;
 	padding: 20px;
 	border-top-right-radius: 3px;

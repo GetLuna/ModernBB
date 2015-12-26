@@ -71,11 +71,8 @@ if (isset($_POST['form_sent']))
 $page_title = array(luna_htmlspecialchars($luna_config['o_board_title']), $lang['Admin'], $lang['Registration']);
 define('FORUM_ACTIVE_PAGE', 'admin');
 require FORUM_ROOT.'backstage/header.php';
-generate_admin_menu('global');
+generate_admin_menu('settings', 'registration');
 
-?>
-<h2><?php echo $lang['Registration'] ?></h2>
-<?php
 if (isset($_GET['saved']))
 	echo '<div class="alert alert-success"><h4>'.$lang['Settings saved'].'</h4></div>'
 ?>

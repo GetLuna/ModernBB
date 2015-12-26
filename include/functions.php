@@ -173,70 +173,85 @@ function authenticate_user($user, $password, $password_is_hash = false)
 //
 // Display the admin navigation menu
 //
-function generate_admin_menu($page = '')
+function generate_admin_menu($section, $page)
 {
 	global $luna_config, $luna_user, $lang;
 
 	$is_admin = $luna_user['g_id'] == FORUM_ADMIN ? true : false;
 
+	// What page are we on?
+	if ($page == 'index')
+		$page_title = '<span class="fa fa-fw fa-tachometer"></span> '.$lang['Backstage'];
+	elseif ($page == 'stats')
+		$page_title = '<span class="fa fa-fw fa-info-circle"></span> '.$lang['System info'];
+	elseif ($page == 'update')
+		$page_title = '<span class="fa fa-fw fa-cloud-upload"></span> '.$lang['ModernBB software updates'];
+	elseif ($page == 'about')
+		$page_title = '<span class="fa fa-fw fa-moon-o"></span> '.$lang['About Luna'];
+
+	elseif ($page == 'board')
+		$page_title = '<span class="fa fa-fw fa-sort-amount-desc"></span> '.$lang['Board'];
+	elseif ($page == 'censoring')
+		$page_title = '<span class="fa fa-fw fa-eye-slash"></span> '.$lang['Censoring'];
+	elseif ($page == 'reports')
+		$page_title = '<span class="fa fa-fw fa-exclamation-triangle"></span> '.$lang['Reports'];
+
+	elseif ($page == 'users')
+		$page_title = '<span class="fa fa-fw fa-search"></span> '.$lang['Search'];
+	elseif ($page == 'ranks')
+		$page_title = '<span class="fa fa-fw fa-chevron-up"></span> '.$lang['Ranks'];
+	elseif ($page == 'groups')
+		$page_title = '<span class="fa fa-fw fa-group"></span> '.$lang['Groups'];
+	elseif ($page == 'permissions')
+		$page_title = '<span class="fa fa-fw fa-check-circle"></span> '.$lang['Permissions'];
+	elseif ($page == 'bans')
+		$page_title = '<span class="fa fa-fw fa-ban"></span> '.$lang['Bans'];
+
+	elseif ($page == 'settings')
+		$page_title = '<span class="fa fa-fw fa-cogs"></span> '.$lang['Settings'];
+	elseif ($page == 'features')
+		$page_title = '<span class="fa fa-fw fa-sliders"></span> '.$lang['Features'];
+	elseif ($page == 'appearance')
+		$page_title = '<span class="fa fa-fw fa-eye"></span> '.$lang['Appearance'];
+	elseif ($page == 'registration')
+		$page_title = '<span class="fa fa-fw fa-plus-circle"></span> '.$lang['Registration'];
+	elseif ($page == 'email')
+		$page_title = '<span class="fa fa-fw fa-envelope"></span> '.$lang['Email'];
+	elseif ($page == 'theme')
+		$page_title = '<span class="fa fa-fw fa-paint-brush"></span> '.$lang['Style'];
+	elseif ($page == 'maintenance')
+		$page_title = '<span class="fa fa-fw fa-coffee"></span> '.$lang['Maintenance'];
+	elseif ($page == 'database')
+		$page_title = '<span class="fa fa-fw fa-database"></span> '.$lang['Database'];
+
+	elseif ($page == 'info')
+		$page_title = '<span class="fa fa-fw fa-info-circle"></span> '.$lang['Info'];
+		
+	else
+		$page_title = $page;
+
 ?>
 <nav class="navbar navbar-fixed-top navbar-default" role="navigation">
-    <div class="nav-inner container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand visible-xs-inline" href="../index.php">ModernBB</a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-            	<li class="hidden-xs"><a href="../"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
-                <li class="<?php if ($page == 'index' || $page == 'update' || $page == 'stats') echo 'active'; ?>"><a href="index.php"><span class="glyphicon glyphicon-dashboard"></span> <?php echo $lang['Backstage'] ?></a></li>
-                <li class="dropdown <?php if ($page == 'censoring' || $page == 'reports' || $page == 'board') echo 'active'; ?>">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <span class="glyphicon glyphicon-file"></span> <?php echo $lang['Content'] ?> <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <?php if ($is_admin) { ?><li><a href="board.php"><?php echo $lang['Board structure'] ?></a></li>
-                        <li class="divider"></li>
-                        <li><a href="censoring.php"><?php echo $lang['Censoring'] ?></a></li><?php }; ?>
-                        <li><a href="reports.php"><?php echo $lang['Reports'] ?></a></li>
-                    </ul>
-                </li>
-                <li class="dropdown <?php if ($page == 'users' || $page == 'ranks' || $page == 'groups' || $page == 'permissions' || $page == 'bans') echo 'active'; ?>">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <span class="glyphicon glyphicon-user"></span> <?php echo $lang['Users'] ?> <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="users.php"><?php echo $lang['Users'] ?></a></li>
-                        <?php if ($is_admin) { ?><li><a href="ranks.php"><?php echo $lang['Ranks'] ?></a></li>
-                        <li><a href="groups.php"><?php echo $lang['Groups'] ?></a></li><?php }; ?>
-                        <?php if (($luna_user['g_mod_ban_users'] == '1') || ($is_admin)) { ?><li class="divider"></li>
-                        <?php if ($is_admin) { ?><li><a href="permissions.php"><?php echo $lang['Permissions'] ?></a></li><?php }; ?>
-                        <li><a href="bans.php"><?php echo $lang['Bans'] ?></a></li><?php }; ?>
-                    </ul>
-                </li>
-                <?php if ($is_admin) { ?><li class="dropdown <?php if ($page == 'global' || $page == 'display' || $page == 'features' || $page == 'registration' || $page == 'email' || $page == 'style' || $page == 'backstage' || $page == 'database' || $page == 'maintenance') echo 'active'; ?>">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <span class="glyphicon glyphicon-cog"></span> <?php echo $lang['Settings'] ?> <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="settings.php"><?php echo $lang['Global'] ?></a></li>
-                        <li><a href="features.php"><?php echo $lang['Features'] ?></a></li>
-                        <li><a href="registration.php"><?php echo $lang['Registration'] ?></a></li>
-                        <li><a href="email.php"><?php echo $lang['Email'] ?></a></li>
-                        <li class="divider"></li>
-                        <li><a href="appearance.php"><?php echo $lang['Appearance'] ?></a></li>
-                        <li><a href="style.php"><?php echo $lang['Style'] ?></a></li>
-                        <li class="divider"></li>
-                        <li><a href="maintenance.php"><?php echo $lang['Maintenance'] ?></a></li>
-                        <li><a href="database.php"><?php echo $lang['Database'] ?></a></li>
-                        <li class="divider"></li>
-                        <li><a href="backstage.php"><?php echo $lang['Backstage settings'] ?></a></li>
-                    </ul>
-                </li><?php }; ?>
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="../index.php"><span class="fa fa-fw fa-arrow-left hidden-xs"></span><span class="visible-xs-inline"><?php echo $page_title ?></span></a>
+		</div>
+		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li class="<?php if ($section == 'backstage') echo 'active'; ?>"><a href="index.php"><span class="fa fa-fw fa-dashboard"></span> <?php echo $lang['Backstage'] ?></a></li>
+				<?php if ($is_admin) { ?>
+					<li class="<?php if ($section == 'content') echo 'active'; ?>"><a href="board.php"><span class="fa fa-fw fa-file"></span> <?php echo $lang['Content'] ?></a></li>
+				<?php } else { ?>
+					<li class="<?php if ($section == 'content') echo 'active'; ?>"><a href="reports.php"><span class="fa fa-fw fa-file"></span> <?php echo $lang['Content'] ?></a></li>
+				<?php } ?>
+				<li class="<?php if ($section == 'users') echo 'active'; ?>"><a href="users.php"><span class="fa fa-fw fa-users"></span> <?php echo $lang['Users'] ?></a></li>
+				<?php if ($is_admin) { ?><li class="<?php if ($section == 'settings') echo 'active'; ?>"><a href="settings.php"><span class="fa fa-fw fa-cog"></span> <?php echo $lang['Settings'] ?></a></li><?php } ?>
 <?php
 
 	// See if there are any plugins
@@ -246,36 +261,89 @@ function generate_admin_menu($page = '')
 	if (!empty($plugins))
 	{
 ?>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <span class="glyphicon glyphicon-flash"></span> <?php echo $lang['Extensions'] ?> <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
+				<li class="dropdown<?php if ($section == ' extensions') echo 'active'; ?>">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<span class="fa fa-fw fa-cogs"></span> <?php echo $lang['Extensions'] ?> <span class="fa fa-fw fa-angle-down">
+					</a>
+					<ul class="dropdown-menu">
 <?php
 		foreach ($plugins as $plugin_name => $plugin)
 			echo "\t\t\t\t\t".'<li><a href="loader.php?plugin='.$plugin_name.'">'.str_replace('_', ' ', $plugin).'</a></li>'."\n";
 ?>
-                    </ul>
-                </li>
+					</ul>
+				</li>
 <?php } ?>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown usermenu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <?php print(luna_htmlspecialchars($luna_user['username'])) ?> <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><?php echo '<a href="../profile.php?id='.$luna_user['id'].'">' ?><?php echo $lang['Profile'] ?></a></li>
-                        <li class="divider"></li>
-                        <li><a href="http://modernbb.be"><?php echo $lang['Support'] ?></a></li>
-                        <li class="divider"></li>
-                        <li><?php echo '<a href="../login.php?action=out&amp;id='.$luna_user['id'].'&amp;csrf_token='.luna_hash($luna_user['id'].luna_hash(get_remote_address())).'">' ?><?php echo $lang['Logout'] ?></a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
+			</ul>
+<?php
+$logout_url = '../login.php?action=out&amp;id='.$luna_user['id'].'&amp;csrf_token='.luna_hash($luna_user['id'].luna_hash(get_remote_address()));
+?>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown usermenu">
+					<a href="../profile.php?id=<?php echo $luna_user['id'] ?>" class="dropdown-toggle dropdown-user" data-toggle="dropdown">
+						<?php print(luna_htmlspecialchars($luna_user['username'])) ?> <span class="fa fa-fw fa-angle-down hide-if-no-js"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="../profile.php?id=<?php echo $luna_user['id'] ?>"><?php echo $lang['Profile'] ?></a></li>
+						<li><a href="../profile.php?section=settings&id=<?php echo ''.$luna_user['id'] ?>"><?php echo $lang['Settings'] ?></a></li>
+						<li class="divider"></li>
+						<li><a href="../help.php"><?php echo $lang['Help'] ?></a></li>
+						<li><a href="http://getluna.org"><?php echo $lang['Support'] ?></a></li>
+						<li class="divider"></li>
+						<li><a href="<?php echo $logout_url; ?>"><?php echo $lang['Logout'] ?></a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
 </nav>
+<div class="jumbotron jumboheader">
+	<div class="container">
+		<div class="row">
+			<h2 class="hidden-xs">
+				<?php
+					echo $page_title;
+					if ($luna_config['o_update_ring'] > 1)
+						echo '<span class="pull-right" style="font-size: 70%;">Core '.Version::FORUM_CORE_VERSION.'</span>';
+				?>
+			</h2>
+			<?php if ($section == 'backstage') { ?>
+			<ul class="nav nav-tabs" role="tablist">
+				<li<?php if($page == 'index') echo ' class="active"' ?>><a href="index.php"><span class="fa fa-fw fa-tachometer"></span><span class="hidden-xs"> <?php echo $lang['Backstage'] ?></span></a></li>
+				<li<?php if($page == 'stats') echo ' class="active"' ?>><a href="statistics.php"><span class="fa fa-fw fa-info-circle"></span><span class="hidden-xs"> <?php echo $lang['System info'] ?></span></a></li>
+				<li<?php if($page == 'update') echo ' class="active"' ?>><a href="update.php"><span class="fa fa-fw fa-cloud-upload"></span><span class="hidden-xs"> <?php echo $lang['Update'] ?></span></a></li>
+			</ul>
+			<?php } if ($section == 'content') { ?>
+			<ul class="nav nav-tabs" role="tablist">
+				<li<?php if($page == 'board') echo ' class="active"' ?>><a href="board.php"><span class="fa fa-fw fa-sort-amount-desc"></span><span class="hidden-xs"> <?php echo $lang['Board'] ?></span></a></li>
+				<li<?php if($page == 'censoring') echo ' class="active"' ?>><a href="censoring.php"><span class="fa fa-fw fa-eye-slash"></span><span class="hidden-xs"> <?php echo $lang['Censoring'] ?></span></a></li>
+				<li<?php if($page == 'reports') echo ' class="active"' ?>><a href="reports.php"><span class="fa fa-fw fa-exclamation-triangle"></span><span class="hidden-xs"> <?php echo $lang['Reports'] ?></span></a></li>
+			</ul>
+			<?php } if ($section == 'users') { ?>
+			<ul class="nav nav-tabs" role="tablist">
+				<li<?php if($page == 'users') echo ' class="active"' ?>><a href="users.php"><span class="fa fa-fw fa-search"></span><span class="hidden-xs"> <?php echo $lang['Search'] ?></span></a></li>
+				<li<?php if($page == 'ranks') echo ' class="active"' ?>><a href="ranks.php"><span class="fa fa-fw fa-chevron-up"></span><span class="hidden-xs"> <?php echo $lang['Ranks'] ?></span></a></li>
+				<li<?php if($page == 'groups') echo ' class="active"' ?>><a href="groups.php"><span class="fa fa-fw fa-group"></span><span class="hidden-xs"> <?php echo $lang['Groups'] ?></span></a></li>
+				<li<?php if($page == 'permissions') echo ' class="active"' ?>><a href="permissions.php"><span class="fa fa-fw fa-check-circle"></span><span class="hidden-xs"> <?php echo $lang['Permissions'] ?></span></a></li>
+				<li<?php if($page == 'bans') echo ' class="active"' ?>><a href="bans.php"><span class="fa fa-fw fa-ban"></span><span class="hidden-xs"> <?php echo $lang['Bans'] ?></span></a></li>
+			</ul>
+			<?php } if ($section == 'settings') { ?>
+			<ul class="nav nav-tabs" role="tablist">
+				<li<?php if($page == 'settings') echo ' class="active"' ?>><a href="settings.php"><span class="fa fa-fw fa-cogs"></span><span class="hidden-xs"> <?php echo $lang['Settings'] ?></span></a></li>
+				<li<?php if($page == 'features') echo ' class="active"' ?>><a href="features.php"><span class="fa fa-fw fa-sliders"></span><span class="hidden-xs"> <?php echo $lang['Features'] ?></span></a></li>
+				<li<?php if($page == 'appearance') echo ' class="active"' ?>><a href="appearance.php"><span class="fa fa-fw fa-eye"></span><span class="hidden-xs"> <?php echo $lang['Appearance'] ?></span></a></li>
+				<li<?php if($page == 'registration') echo ' class="active"' ?>><a href="registration.php"><span class="fa fa-fw fa-plus-circle"></span><span class="hidden-xs"> <?php echo $lang['Registration'] ?></span></a></li>
+				<li<?php if($page == 'email') echo ' class="active"' ?>><a href="email.php"><span class="fa fa-fw fa-envelope"></span><span class="hidden-xs"> <?php echo $lang['Email'] ?></span></a></li>
+				<li<?php if($page == 'theme') echo ' class="active"' ?>><a href="theme.php"><span class="fa fa-fw fa-paint-brush"></span><span class="hidden-xs"> <?php echo $lang['Style'] ?></span></a></li>
+				<li<?php if($page == 'maintenance') echo ' class="active"' ?>><a href="maintenance.php"><span class="fa fa-fw fa-coffee"></span><span class="hidden-xs"> <?php echo $lang['Maintenance'] ?></span></a></li>
+				<li<?php if($page == 'database') echo ' class="active"' ?>><a href="database.php"><span class="fa fa-fw fa-database"></span><span class="hidden-xs"> <?php echo $lang['Database'] ?></span></a></li>
+			</ul>
+			<?php } ?>
+		</div>
+	</div>
+</div>
+<div class="content">
+    <div class="container">
+        <div class="row">
 
 <?php
 

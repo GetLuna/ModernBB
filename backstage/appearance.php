@@ -85,11 +85,8 @@ if (isset($_POST['form_sent']))
 $page_title = array(luna_htmlspecialchars($luna_config['o_board_title']), $lang['Admin'], $lang['Appearance']);
 define('FORUM_ACTIVE_PAGE', 'admin');
 require FORUM_ROOT.'backstage/header.php';
-generate_admin_menu('display');
+generate_admin_menu('settings', 'appearance');
 
-?>
-<h2><?php echo $lang['Appearance'] ?></h2>
-<?php
 if (isset($_GET['saved']))
 	echo '<div class="alert alert-success"><h4>'.$lang['Settings saved'].'</h4></div>'
 ?>
@@ -235,7 +232,7 @@ if (isset($_GET['saved']))
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label"><?php echo $lang['Topics per page'] ?><span class="help-block"><?php echo $lang['Topics per page help'] ?></span></label>
+                    <label class="col-sm-3 control-label"><?php echo $lang['Topics'] ?><span class="help-block"><?php echo $lang['Topics per page help'] ?></span></label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control" name="form[disp_topics_default]" maxlength="2" value="<?php echo $luna_config['o_disp_topics_default'] ?>" />
                     </div>

@@ -9,10 +9,10 @@
 class Version
 {
 	// See http://modernbb.be/docs/version.php for more info
-	const FORUM_VERSION = '3.7.0';
+	const FORUM_VERSION = '4.0.0';
 
 	// The ModernBB Core version
-	const FORUM_CORE_VERSION = '0.0.37.2592';
+	const FORUM_CORE_VERSION = '0.0.40.2814';
 
 	// The database version number, every change in the database requires this number to go one up
 	const FORUM_DB_VERSION = 77;

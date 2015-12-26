@@ -144,11 +144,8 @@ if (isset($_POST['form_sent']))
 $page_title = array(luna_htmlspecialchars($luna_config['o_board_title']), $lang['Admin'], $lang['Options']);
 define('FORUM_ACTIVE_PAGE', 'admin');
 require FORUM_ROOT.'backstage/header.php';
-generate_admin_menu('global');
+generate_admin_menu('settings', 'settings');
 
-?>
-<h2><?php echo $lang['Options head'] ?></h2>
-<?php
 if (isset($_GET['saved']))
 	echo '<div class="alert alert-success"><h4>'.$lang['Settings saved'].'</h4></div>'
 ?>
@@ -441,7 +438,7 @@ if (isset($_GET['saved']))
                     <div class="col-sm-9">
                     	<div class="input-group">
 							<input type="text" class="form-control" name="form[avatars_size]" maxlength="6" value="<?php echo $luna_config['o_avatars_size'] ?>" />
-							<span class="input-group-addon"><?php echo $lang['bytes'] ?></span>
+							<span class="input-group-addon"><?php echo $lang['pixels'] ?></span>
                         </div>
                     </div>
                 </div>

@@ -99,10 +99,9 @@ if (isset($_REQUEST['add_ban']) || isset($_GET['edit_ban']))
 	$focus_element = array('bans2', 'ban_user');
 	define('FORUM_ACTIVE_PAGE', 'admin');
 	require FORUM_ROOT.'backstage/header.php';
-	generate_admin_menu('bans');
+	generate_admin_menu('users', 'bans');
 
 ?>
-<h2><?php echo $lang['Ban advanced head'] ?></h2>
 <form class="form-horizontal" id="bans2" method="post" action="bans.php">
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -127,7 +126,7 @@ if (isset($_REQUEST['add_ban']) || isset($_GET['edit_ban']))
                 <div class="form-group">
                     <label class="col-sm-3 control-label"><?php echo $lang['Email'] ?><span class="help-block"><?php echo $lang['E-mail help'] ?></span></label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="ban_email" maxlength="80" value="<?php if (isset($ban_email)) echo luna_htmlspecialchars($ban_email); ?>" tabindex="3" />
+                        <input type="text" class="form-control" name="ban_email" maxlength="80" value="<?php if (isset($ban_email)) echo $ban_email; ?>" tabindex="3" />
                     </div>
                 </div>
             </fieldset>
@@ -281,7 +280,10 @@ else if (isset($_POST['add_edit_ban']))
 
 	generate_bans_cache();
 
-	redirect('backstage/bans.php');
+	if ($_POST['mode'] == 'edit')
+		redirect('backstage/bans.php');
+	else
+		redirect('backstage/bans.php');
 }
 
 // Remove a ban
@@ -369,10 +371,9 @@ else if (isset($_GET['find_ban']))
 	$page_title = array(luna_htmlspecialchars($luna_config['o_board_title']), $lang['Admin'], $lang['Bans'], $lang['Results head']);
 	define('FORUM_ACTIVE_PAGE', 'admin');
 	require FORUM_ROOT.'backstage/header.php';
-	generate_admin_menu('bans');
+	generate_admin_menu('users', 'bans');
 
 ?>
-<h2><?php echo $lang['Bans'] ?></h2>
 <div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title"><?php echo $lang['Results head'] ?></h3>
@@ -409,7 +410,7 @@ else if (isset($_GET['find_ban']))
 ?>
 			<tr>
 				<td class="tcl"><?php echo ($ban_data['username'] != '') ? luna_htmlspecialchars($ban_data['username']) : '&#160;' ?></td>
-				<td class="tc2"><?php echo ($ban_data['email'] != '') ? luna_htmlspecialchars($ban_data['email']) : '&#160;' ?></td>
+				<td class="tc2"><?php echo ($ban_data['email'] != '') ? $ban_data['email'] : '&#160;' ?></td>
 				<td class="tc3"><?php echo ($ban_data['ip'] != '') ? luna_htmlspecialchars($ban_data['ip']) : '&#160;' ?></td>
 				<td class="tc4"><?php echo $expire ?></td>
 				<td class="tc5"><?php echo ($ban_data['message'] != '') ? luna_htmlspecialchars($ban_data['message']) : '&#160;' ?></td>
@@ -441,10 +442,9 @@ $page_title = array(luna_htmlspecialchars($luna_config['o_board_title']), $lang[
 $focus_element = array('bans', 'new_ban_user');
 define('FORUM_ACTIVE_PAGE', 'admin');
 require FORUM_ROOT.'backstage/header.php';
-	generate_admin_menu('bans');
+	generate_admin_menu('users', 'bans');
 
 ?>
-<h2><?php echo $lang['Bans'] ?></h2>
 <div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title"><?php echo $lang['New ban head'] ?></h3>

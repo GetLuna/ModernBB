@@ -71,7 +71,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Header */
 #header {
-	background: #f15300;
+	background: #ea3700;
+	background: linear-gradient(to right, #ea3700, #fd8000);
 	color: #fff;
 }
 
@@ -94,11 +95,11 @@ h1, h2, h3, h4, h5, h6 {
 	}
 
 	#header .dropdown-menu > li > a:hover, #header .dropdown-menu > li > a:focus {
-		background: #f96a00;
+		background: #47a9f5;
 	}
 
 	.dropdown-menu .divider {
-		background-color: #b62b00;
+		background-color: #0068b0;
 	}
 
 	.navbar-default .navbar-collapse, .navbar-default .navbar-form {
@@ -109,6 +110,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .announcement a {
 	text-decoration: underline;
+}
+
+@media screen and (min-width: 768px) {
+	.navbar-default .navbar-brand, .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+		background: #da3400;
+	}
 }
 
 .avatar-item .avatar {
@@ -162,7 +169,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .first-run-profile {
-	background: #f15300;
+	background: #ea3700;
+	background: linear-gradient(to bottom left, #ea3700, #fd8000);
 	border-bottom-left-radius: 3px;
 	border-top-left-radius: 3px;
 	padding-bottom: 16px;
@@ -180,6 +188,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .first-run-avatar img {
 	border-radius: 3px;
+	box-shadow: 0px 0px 13px rgba(0, 0, 0, .5);
 }
 
 .first-run-list {
@@ -279,7 +288,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .panel-default .panel-heading {
 	border: none;
-	background: #f15300;
+	background: #ea3700;
+	background: linear-gradient(to right, #ea3700, #fd8000);
 	color: #fff;
 	height: 37px;
 }
@@ -304,12 +314,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar {
-	background: #f15300;
-	border-bottom-color: rgba(255,255,255,.3);
+	border: none;
+	background: #ea3700;
+}
+  
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+	background-color: #da3400;
 }
 
-.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-	background-color: transparent;
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+	background-color: #da3400;
 	color: #fff;
 }
 
@@ -334,15 +348,15 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Toggle */
 .navbar-default .navbar-toggle {
-	border-color: #fff;
+	border-color: #ea3700;
 }
 
 .navbar-default .navbar-toggle, .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-	background-color: #fff;
+	background-color: #ea3700;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
-	background-color: #f15300;
+	background-color: #fff;
 }
 
 /* Pagination */
@@ -357,8 +371,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
-	border: 1px solid #f15300;
-	background-color: #f15300;
+	border: 1px solid #da3400;
+	background-color: #da3400;
 }
 
 /* Profile */
@@ -368,8 +382,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a.active.list-group-item, a.active.list-group-item:hover, a.active.list-group-item:focus {
-	background-color: #f15300;
-	border-color: #f15300;
+	background-color: #da3400;
+	border-color: #da3400;
 }
 
 .profile-h2 {
@@ -517,12 +531,14 @@ a.active.list-group-item, a.active.list-group-item:hover, a.active.list-group-it
 
 .table > thead > tr.active {
 	color: #fff;
-	background: #f15300;
+	background: #ea3700;
+	background: linear-gradient(to right, #ea3700, #fd8000);
 }
 
 .category-header, .forum-header {
 	color: #fff;
-	background: #f15300;
+	background: #ea3700;
+	background: linear-gradient(to right, #ea3700, #fd8000);
 	padding: 8px 0;
 	border-top-left-radius: 3px;
 	border-top-right-radius: 3px;
@@ -574,18 +590,18 @@ a.active.list-group-item, a.active.list-group-item:hover, a.active.list-group-it
 
 .btn-primary {
 	color: #fff;
-	background-color: #f15300;
-	border: 1px solid #d64a00;
+	background-color: #ea3700;
+	border-color: #da3400;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] {
-	background-color: #d64a00;
-	border: 1px solid #b83f00;
 	color: #fff;
+	background-color: #fa4913;
+	border-color: #da3400;
 }
 
 .btn-primary:active, .btn-primary.active {
-	background-color: #bd1600 9;
+	background-color: #fa4913;
 }
 
 .btn-post {
@@ -645,13 +661,12 @@ a.active.list-group-item, a.active.list-group-item:hover, a.active.list-group-it
 }
 
 .alert-info, #redirect {
-	border-left: #ff5a00 5px solid;
-	color: #d33200;
+	border-left: #2ca0e9 5px solid;
 }
 
 .alert-danger {
-	border-left: #3e3e3e 5px solid;
-	color: #3e3e3e;
+	border-left: #ff5a00 5px solid;
+	color: #d33200;
 }
 
 .alert-success {
@@ -737,7 +752,7 @@ textarea {
 }
 
 .inew .icon {
-	border-color: #f05316;
+	border-color: #2ca0e9;
 }
 
 /* Search */
@@ -920,7 +935,7 @@ textarea {
 
 .profile-card-head {
 	height: 59px;
-	background-color: #f15300;
+	background-color: #ea3700;
 	color: #fff;
 	border-top-left-radius: 3px;
 	border-top-right-radius: 3px;
@@ -988,11 +1003,12 @@ textarea {
 	left: 4px;
 	margin-top: -2px;
 	border-left-width: 0px;
-	border-right-color: #f15300;;
+	border-right-color: #ea3700;
 }
 
 .topic .panel-heading {
-	background: #f15300;
+	background: #ea3700;
+	background: linear-gradient(to right, #ea3700, #fd8000);
 }
 
 .post-actions {
@@ -1010,7 +1026,8 @@ textarea {
 	}
 
 	.profile-card-head {
-		background: #f15300;
+		background: #ea3700;
+		background: linear-gradient(to right, #ea3700, #fd8000);
 	}
 
 	.topic .panel-heading  {
@@ -1043,11 +1060,11 @@ textarea {
 
 /* Links */
 a {
-	color: #f15500;
+	color: #428bca;
 }
 
 a:hover, a:active {
-	color: #f11700;
+	color: #2a6496;
 }
 
 a.list-group-item:hover, a.list-group-item:active {
@@ -1094,7 +1111,8 @@ blockquote footer {
 .form-heading {
 	margin-bottom: 0px;
 	font-weight: 100;
-	background: #f15300;
+	background: #ea3700;
+	background: linear-gradient(to right, #ea3700, #fd8000);
 	color: #fff;
 	padding: 20px;
 	border-top-right-radius: 3px;

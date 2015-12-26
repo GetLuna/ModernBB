@@ -14,15 +14,34 @@
 
 ?>
 <style>
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-	color: <?php echo $accent ?>;
+.navbar-default, .panel-default .panel-heading, .btn-primary, .btn-primary:focus, .btn-primary:active, .active.btn-primary, .open .btn-primary.dropdown-toggle {
+	background-color: <?php echo $accent ?>;
 }
 
-.panel-default .panel-heading, .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus, .navbar-default .navbar-toggle, .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus, .navbar, .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-	background: <?php echo $accent ?>;
+.jumboheader {
+	background-color: <?php echo $accent ?>;
 }
 
-.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+.panel-primary > .panel-heading, .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+	background-color: <?php echo $accent ?>;
+}
+
+.panel-default .panel-heading {
 	border-color: <?php echo $accent ?>;
+}
+
+.btn-primary {
+	border-color: <?php echo $accent ?>;
+}
+
+.panel-primary > .panel-heading, .btn-primary:hover, .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+	border-color: <?php echo $accent ?>;
+}
+
+@media all and (max-width:767px) {
+	.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+		background-color: <?php echo $accent ?>;
+		border-color: <?php echo $accent ?>;
+	}
 }
 </style>

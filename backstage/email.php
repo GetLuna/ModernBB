@@ -73,11 +73,8 @@ if (isset($_POST['form_sent']))
 $page_title = array(luna_htmlspecialchars($luna_config['o_board_title']), $lang['Admin'], $lang['Options']);
 define('FORUM_ACTIVE_PAGE', 'admin');
 require FORUM_ROOT.'backstage/header.php';
-generate_admin_menu('email');
+generate_admin_menu('settings', 'email');
 
-?>
-<h2><?php echo $lang['Email'] ?></h2>
-<?php
 if (isset($_GET['saved']))
 	echo '<div class="alert alert-success"><h4>'.$lang['Settings saved'].'</h4></div>'
 ?>
@@ -92,12 +89,12 @@ if (isset($_GET['saved']))
                 <div class="form-group">
                     <label class="col-sm-3 control-label"><?php echo $lang['Admin e-mail label'] ?><span class="help-block"><?php echo $lang['Admin e-mail help'] ?></span></label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="form[admin_email]" maxlength="80" value="<?php echo luna_htmlspecialchars($luna_config['o_admin_email']) ?>" />
+                        <input type="text" class="form-control" name="form[admin_email]" maxlength="80" value="<?php echo $luna_config['o_admin_email'] ?>" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label"><?php echo $lang['Webmaster e-mail label'] ?><span class="help-block"><?php echo $lang['Webmaster e-mail help'] ?></span></label>
-						<div class="col-sm-9"><input type="text" class="form-control" name="form[webmaster_email]" maxlength="80" value="<?php echo luna_htmlspecialchars($luna_config['o_webmaster_email']) ?>" />
+						<div class="col-sm-9"><input type="text" class="form-control" name="form[webmaster_email]" maxlength="80" value="<?php echo $luna_config['o_webmaster_email'] ?>" />
                     </div>
                 </div>
             </fieldset>

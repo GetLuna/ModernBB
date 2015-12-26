@@ -75,11 +75,8 @@ if (isset($_POST['form_sent']))
 $page_title = array(luna_htmlspecialchars($luna_config['o_board_title']), $lang['Admin'], $lang['Features']);
 define('FORUM_ACTIVE_PAGE', 'admin');
 require FORUM_ROOT.'backstage/header.php';
-generate_admin_menu('features');
+generate_admin_menu('settings', 'features');
 
-?>
-<h2><?php echo $lang['Features'] ?></h2>
-<?php
 if (isset($_GET['saved']))
 	echo '<div class="alert alert-success"><h4>'.$lang['Settings saved'].'</h4></div>'
 ?>
@@ -248,13 +245,13 @@ if (isset($_GET['saved']))
                 <div class="form-group">
                     <label class="col-sm-3 control-label"><?php echo $lang['Video height'] ?><span class="help-block"><?php echo $lang['Video height help'] ?></span></label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="form[video_height]" maxlength="4" value="<?php echo $luna_config['o_video_height'] ?>" />
+                        <input type="text" class="form-control" name="form[video_width]" maxlength="4" value="<?php echo $luna_config['o_video_width'] ?>" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label"><?php echo $lang['Video width'] ?><span class="help-block"><?php echo $lang['Video width help'] ?></span></label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="form[video_width]" maxlength="4" value="<?php echo $luna_config['o_video_width'] ?>" />
+                        <input type="text" class="form-control" name="form[video_height]" maxlength="4" value="<?php echo $luna_config['o_video_height'] ?>" />
                     </div>
                 </div>
             </fieldset>

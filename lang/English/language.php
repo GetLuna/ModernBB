@@ -1221,7 +1221,7 @@ $lang = array(
 'ModernBB updates'					=>	'ModernBB updates',
 'Check for updates'					=>	'Check for updates',
 'New version'						=>	'It\'s time to update, a new version is available',
-'Latest version'					=>	'Thanks for using the latest version of ModernBB',
+'Latest version'					=>	'Thanks for using the latest version of ModernBB, but make sure you upgrade to Luna.',
 'Development version'				=>	'You\'re using a development release',
 
 'Reset head'						=>	'ModernBB reset features',
@@ -1596,6 +1596,7 @@ $lang = array(
 'Content'				=>	'Content',
 'Forums'				=>	'Forums',
 'Forum settings'		=>	'Forum settings',
+'System info'			=>	'System info',
 'Categories'			=>	'Categories',
 'Board'					=>	'Board',
 'Board structure'		=>	'Board structure',
@@ -1610,8 +1611,7 @@ $lang = array(
 'Global'				=>	'Global',
 'Registration'			=>	'Registration',
 'Email'					=>	'Email',
-'Database'				=>	'Database management',
-'Backstage settings'	=>	'Backstage settings',
+'Database'				=>	'Database',
 'Extensions'			=>	'Extensions',
 
 //
